@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Portal Admin — Fathona Performing Festival</title>
+<link rel="icon" href="favicon.png" />
+<link rel="stylesheet" href="style.css" />
+<style>
+  .adm{max-width:1100px;margin:0 auto;padding:32px 16px}
+  .adm-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  .adm-head img{width:56px;height:56px;border-radius:50%}
+  .adm-card{background:#fff;border-radius:16px;padding:28px;box-shadow:0 20px 50px -25px rgba(30,50,120,.35);border-top:4px solid #f2c230;margin-top:24px}
+  .adm input,.adm select{width:100%;padding:12px 14px;border:1px solid #cfd8ee;border-radius:10px;font:inherit}
+  .adm button{background:#1f3fa8;color:#fff;border:0;border-radius:10px;padding:12px 18px;font:inherit;font-weight:600;cursor:pointer}
+  .adm button.alt{background:#fff;color:#1f3fa8;border:1px solid #1f3fa8}
+  .adm button.mini{padding:6px 10px;font-size:12px;border-radius:8px}
+  .tools{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}.tools input{flex:1;min-width:200px}.tools select{width:auto}
+  .tbl{overflow-x:auto}table{width:100%;border-collapse:collapse;min-width:900px;font-size:14px}
+  th{background:#e9eefb;text-align:left;padding:12px}td{padding:12px;border-top:1px solid #e3e8f4;vertical-align:top}
+  .err{color:#c62828;font-size:14px}[hidden]{display:none!important}
+
+  /* Preview bukti */
+  .bukti-box{margin-top:10px;display:grid;grid-template-columns:repeat(2,1fr);gap:8px;min-width:320px}
+  .bukti-item{border:1px solid #d6deef;border-radius:8px;padding:6px;background:#fafbff}
+  .bukti-item p{margin:0 0 4px;font-size:11px;font-weight:600;color:#1f3fa8}
+  .bukti-item img{width:100%;height:auto;border-radius:6px;display:block;cursor:zoom-in;border:1px solid #e3e8f4}
+  .bukti-item a{font-size:11px;color:#1f3fa8;word-break:break-all}
+  .bukti-item.pdf{text-align:center;padding:12px 6px}
+</style>
+</head>
+<body style="background:#f5f7fc">
+<div class="adm">
+  <div class="adm-head">
+    <div style="display:flex;align-items:center;gap:12px"><img src="logo.jpg" alt="Logo Fathona Performing Festival" />
+      <div><b style="color:#1f3fa8">Fathona Performing Festival</b><br><small>Portal Admin</small></div></div>
+    <div><a href="index.html" id="back">← Pendaftaran</a> <button class="alt" id="logout" hidden>Keluar</button></div>
+  </div>
+
+  <form class="adm-card" id="login" style="max-width:380px;margin:40px auto">
+    <h1 style="margin-top:0">Masuk Admin</h1>
+    <label>Kata Sandi<input type="password" id="pw" required autocomplete="current-password" /></label>
+    <p class="err" id="err" hidden>Kata sandi salah.</p>
+    <button type="submit" style="width:100%;margin-top:14px">Masuk</button>
+  </form>
+
+  <div class="adm-card" id="dash" hidden>
+    <div style="display:flex;justify-content:space-between;align-items:end;flex-wrap:wrap;gap:10px">
+      <div><small id="total"></small><h1 style="margin:4px 0 0">Rekap Peserta</h1></div>
+      <div style="display:flex;gap:8px"><button class="alt" id="hapus">Hapus Semua</button><button id="excel">Ekspor Excel</button></div>
+    </div>
+    <div class="tools"><input id="cari" placeholder="Cari nama, sekolah, atau lomba…" /><select id="filter"><option value="">Semua kelas/kategori</option></select></div>
+    <div class="tbl"><table><thead><tr><th>No</th><th>Nama Peserta</th><th>Kelas/Kategori</th><th>Asal Sekolah</th><th>Lomba</th><th>WhatsApp</th><th>Waktu Daftar</th><th>Bukti</th></tr></thead><tbody id="rows"></tbody></table></div>
+    <p id="kosong" style="text-align:center;color:#667">Belum ada peserta terdaftar.</p>
+  </div>
+</div>
+<script src="admin.js"></script>
+</body>
+</html>

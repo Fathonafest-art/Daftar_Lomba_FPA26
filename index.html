@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Pendaftaran Fathona Performing Festival — SIT Fathona Palembang</title>
+<meta name="description" content="Formulir pendaftaran online lomba Fathona Performing Festival untuk TK, SD, SMP, dan Guru." />
+<link rel="icon" type="image/png" href="favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- HERO: gambar panggung full width -->
+<header class="hero">
+  <img src="panggung.jpg" alt="Panggung Fathona Performing Festival" class="hero-img" />
+
+  <div class="festival-motion" aria-hidden="true">
+    <span class="stage-beam stage-beam-left"></span>
+    <span class="stage-beam stage-beam-right"></span>
+    <span class="festival-symbol festival-symbol-1">&#9835;</span>
+    <span class="festival-symbol festival-symbol-2">&#9733;</span>
+    <span class="festival-symbol festival-symbol-3">&#10022;</span>
+    <span class="festival-symbol festival-symbol-4">&#9834;</span>
+    <span class="festival-symbol festival-symbol-5">&#10022;</span>
+    <span class="festival-symbol festival-symbol-6">&#9733;</span>
+    <span class="festival-confetti"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="card">
+
+    <!-- ============ FORMULIR ============ -->
+    <div id="form-view">
+      <ol class="steps" id="steps">
+        <li class="step" data-step="0">
+          <span class="step-node">
+            <span class="dot">1</span>
+            <span class="step-name">Data Diri</span>
+          </span>
+          <span class="bar"><span class="bar-fill"></span></span>
+        </li>
+        <li class="step" data-step="1">
+          <span class="step-node">
+            <span class="dot">2</span>
+            <span class="step-name">Pilih Lomba</span>
+          </span>
+          <span class="bar"><span class="bar-fill"></span></span>
+        </li>
+        <li class="step step-last" data-step="2">
+          <span class="step-node">
+            <span class="dot">3</span>
+            <span class="step-name">Unggah Bukti</span>
+          </span>
+        </li>
+      </ol>
+
+      <div class="panel" data-panel="0">
+        <label class="field">
+          <span class="field-label">Nama Peserta</span>
+          <input type="text" id="nama" placeholder="Nama lengkap peserta" maxlength="150" autocomplete="name" />
+        </label>
+        <label class="field">
+          <span class="field-label">Kelas/Kategori</span>
+          <select id="kelas-select">
+            <option value="" selected>Pilih kelas/kategori</option>
+          </select>
+        </label>
+        <label class="field">
+          <span class="field-label">Asal Sekolah</span>
+          <input type="text" id="sekolah" placeholder="Nama sekolah" maxlength="150" autocomplete="organization" />
+        </label>
+        <label class="field">
+          <span class="field-label">Nomor WhatsApp</span>
+          <input type="tel" id="whatsapp" placeholder="08xxxxxxxxxx" maxlength="20" autocomplete="tel" />
+        </label>
+      </div>
+
+      <div class="panel" data-panel="1">
+        <p class="group-sub">Kelas/Kategori: <b id="kelas-tampil">—</b></p>
+        <div class="lomba-box" id="lomba-box" hidden>
+          <p class="group-title">Lomba yang diikuti <span class="tag" id="lomba-tag"></span></p>
+          <div class="grid-lomba" id="grid-lomba"></div>
+        </div>
+      </div>
+
+      <div class="panel" data-panel="2">
+        <div id="bukti-list"></div>
+        <p class="note">Format gambar atau PDF, maksimal 5MB per file.</p>
+      </div>
+
+      <p class="error" id="error" hidden></p>
+
+      <div class="actions">
+        <button type="button" class="btn-ghost" id="btn-back" hidden>Kembali</button>
+        <button type="button" class="btn-primary" id="btn-next">Lanjut</button>
+      </div>
+    </div>
+
+    <div class="done" id="done-view" hidden>
+      <div class="done-mark">&#10003;</div>
+      <h2 class="done-title">Pendaftaran Berhasil!</h2>
+      <p class="done-text">
+        Terima kasih, <b id="done-nama"></b>. Kamu terdaftar di lomba <b id="done-lomba"></b>.
+        Panitia akan menghubungi melalui WhatsApp.
+      </p>
+      <div class="done-actions">
+        <a class="btn-primary" id="btn-download" download="data-pendaftaran.txt">Unduh Data Pendaftaran</a>
+        <a class="btn-ghost" id="btn-wa" target="_blank" rel="noopener" hidden>Kirim ke WhatsApp Panitia</a>
+        <button type="button" class="btn-outline" id="btn-reset">Daftar peserta lain</button>
+      </div>
+    </div>
+
+  </section>
+
+  <p class="credit">© Fathona Performing Festival · SIT Fathona Palembang</p>
+</main>
+
+<p style="text-align:center;margin:24px 0"><a href="admin.html" style="color:inherit;font-size:14px">Portal Admin</a></p>
+<script src="script.js"></script>
+</body>
+</html>
